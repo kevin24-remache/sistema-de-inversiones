@@ -60,7 +60,7 @@
     </div>
     <div class="card-body">
         <form method="POST" action="{{ route('login') }}" class="needs-validation" novalidate>
-            @csrf
+            @CSRF
 
             <div class="mb-4">
                 <label for="email" class="form-label fw-bold text-secondary">{{ __('Correo Electrónico') }}</label>
