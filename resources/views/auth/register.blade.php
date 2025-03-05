@@ -5,7 +5,7 @@
     body {
         background: url('{{ asset('images/background.jpg') }}') no-repeat center center fixed;
         background-size: cover;
-        height: 100vh;
+        height: 200vh;
         margin: 0;
         display: flex;
         align-items: center;
