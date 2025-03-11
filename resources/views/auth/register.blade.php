@@ -5,19 +5,28 @@
     body {
         background: url('{{ asset('images/background.jpg') }}') no-repeat center center fixed;
         background-size: cover;
-        height: 200vh;
+        height: 100vh;
         margin: 0;
         display: flex;
         align-items: center;
         justify-content: center;
     }
+    .overlay {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(8px); /* Desenfoque del fondo */
+    }
     .card {
         background: rgba(255, 255, 255, 0.95);
         border: none;
         border-radius: 15px;
-        width: 100%; /* Ocupa todo el ancho disponible */
-        max-width: 800px; /* Máximo ancho para pantallas grandes */
+        width: 100%;
+        max-width: 800px;
         box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        z-index: 10;
     }
     .custom-header {
         background: linear-gradient(135deg, #3b82f6, #2563eb);
@@ -26,16 +35,35 @@
         font-weight: bold;
         text-align: center;
         padding: 15px;
+        border-radius: 15px 15px 0 0;
     }
     .form-control {
         height: 45px;
         font-size: 1rem;
+        border-radius: 10px;
+        box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
     }
-    button {
-        height: 50px;
+    .btn-primary {
+        background-color: #2563eb;
+        border: none;
+        border-radius: 10px;
+        transition: all 0.3s ease-in-out;
+    }
+    .btn-primary:hover {
+        background-color: #1e40af;
+        transform: scale(1.05);
+    }
+    .btn-outline-secondary {
+        border-radius: 10px;
+        transition: all 0.3s ease-in-out;
+    }
+    .btn-outline-secondary:hover {
+        background-color: #e5e7eb;
+        transform: scale(1.05);
     }
 </style>
 
+<div class="overlay"></div>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-12">
