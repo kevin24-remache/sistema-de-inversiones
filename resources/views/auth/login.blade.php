@@ -10,24 +10,42 @@
         align-items: center;
         justify-content: center;
         flex-direction: column;
+        animation: fadeIn 1.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
     }
 
     .title {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
         font-weight: bold;
         color: #fff;
-        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
         margin-bottom: 30px;
+        animation: slideDown 1s ease-in-out;
+    }
+
+    @keyframes slideDown {
+        from { transform: translateY(-20px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
     }
 
     .card {
         background: rgba(255, 255, 255, 0.95);
         border: none;
         border-radius: 15px;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         padding: 30px;
         max-width: 400px;
         width: 100%;
+        animation: zoomIn 0.8s ease-in-out;
+    }
+
+    @keyframes zoomIn {
+        from { transform: scale(0.9); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
     }
 
     .custom-header {
@@ -38,23 +56,45 @@
         font-size: 1.5rem;
         font-weight: bold;
         border-radius: 15px 15px 0 0;
+        animation: fadeIn 1.2s ease-in-out;
     }
 
     .form-control {
         border-radius: 10px;
+        transition: all 0.3s ease;
+    }
+
+    .form-control:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
     }
 
     .btn {
         border-radius: 10px;
         font-size: 1.2rem;
+        transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+        background: #0056b3;
+        transform: scale(1.05);
+    }
+
+    .btn-warning:hover {
+        background: #e0a800;
+        transform: scale(1.05);
+    }
+
+    .btn-link:hover {
+        text-decoration: underline;
     }
 </style>
 
-<div class="title">
+<div class="title animate__animated animate__fadeInDown">
     Sistema de Inversiones
 </div>
 
-<div class="card">
+<div class="card animate__animated animate__zoomIn">
     <div class="custom-header">
         <i class="bi bi-box-arrow-in-right"></i> {{ __('Inicio de Sesión') }}
     </div>

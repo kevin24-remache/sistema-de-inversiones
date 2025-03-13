@@ -16,7 +16,7 @@
         width: 100%;
         height: 100%;
         background: rgba(0, 0, 0, 0.3);
-        backdrop-filter: blur(8px); /* Desenfoque del fondo */
+        backdrop-filter: blur(8px);
     }
     .card {
         background: rgba(255, 255, 255, 0.95);
@@ -27,6 +27,11 @@
         box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
         padding: 20px;
         z-index: 10;
+        animation: fadeIn 0.5s ease-in-out;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-20px); }
+        to { opacity: 1; transform: translateY(0); }
     }
     .custom-header {
         background: linear-gradient(135deg, #3b82f6, #2563eb);
@@ -42,6 +47,11 @@
         font-size: 1rem;
         border-radius: 10px;
         box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease-in-out;
+    }
+    .form-control:focus {
+        transform: scale(1.02);
+        box-shadow: 0 0 10px rgba(37, 99, 235, 0.5);
     }
     .btn-primary {
         background-color: #2563eb;
