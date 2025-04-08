@@ -5,7 +5,7 @@
     <h1 class="text-2xl font-bold text-center text-gray-800 mb-6">Crear Inversión</h1>
 
     <form action="{{ route('investments.store') }}" method="POST" enctype="multipart/form-data" class="space-y-4">
-        @csrf
+        @CSRF
 
         <div>
             <label for="name" class="block text-sm font-semibold text-gray-700">Nombre:</label>
