@@ -1,6 +1,24 @@
 @extends('layouts.app')
 
 @section('content')
+<style>
+    body {
+    background: url('https://images.unsplash.com/photo-1508780709619-79562169bc64') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Oscurece ligeramente para mejor contraste */
+    z-index: -1;
+}
+</style>
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-6 col-lg-4">
@@ -17,7 +35,7 @@
                     @endif
 
                     <form method="POST" action="{{ route('password.email') }}">
-                        @csrf
+                        @CSRF
 
                         <div class="mb-4">
                             <label for="email" class="form-label">{{ __('Correo Electrónico') }}</label>
@@ -32,7 +50,7 @@
 
                         <div class="d-grid">
                             <button type="submit" class="btn btn-primary btn-lg">
-                                {{ __('Enviar el link de recuperacion al correo ') }}
+                                {{ __('Enviar el link de recuperación al correo ') }}
                             </button>
                         </div>
                     </form>

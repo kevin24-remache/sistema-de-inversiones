@@ -36,7 +36,7 @@
                     <p class="text-secondary">{{ __('Si no recibiste el correo, puedes solicitar otro haciendo clic en el botón de abajo.') }}</p>
 
                     <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
-                        @csrf
+                        @CSRF
                         <button type="submit" class="btn btn-success btn-lg fw-bold shadow-sm">{{ __('Solicitar otro correo') }}</button>
                     </form>
                 </div>
