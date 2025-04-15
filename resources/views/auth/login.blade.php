@@ -99,8 +99,8 @@
         <i class="bi bi-box-arrow-in-right"></i> {{ __('Inicio de Sesión') }}
     </div>
     <div class="card-body">
-        <form method="POST" action="{{ route('login') }}" class="needs-validation" novalidate>
-            @CSRF
+        <form method="POST" action="{{ url('/login') }}" class="needs-validation" novalidate>
+            @csrf
 
             <div class="mb-4">
                 <label for="email" class="form-label fw-bold text-secondary">{{ __('Correo Electrónico') }}</label>

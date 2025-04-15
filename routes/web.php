@@ -6,17 +6,27 @@ use App\Http\Controllers\InvestmentController;
 use App\Http\Controllers\HomeController;
 use App\Models\Investment;
 
-Route::middleware('auth')->group(function () {
-    Route::resource('investments', InvestmentController::class);
+// Rutas de autenticación
+Auth::routes(['register' => true]);
+
+// Redirección después del login/registro
+Route::redirect('/home', '/investments')->name('home');
+
+// Rutas públicas
+Route::get('/', function() {
+    return redirect()->route('login');
 });
 
-Auth::routes();
+// Rutas protegidas por autenticación
+Route::middleware('auth')->group(function () {
+    // Rutas de inversiones
+    Route::resource('investments', InvestmentController::class);
 
+    // Página principal para usuarios autenticados
+    Route::get('/investments', [InvestmentController::class, 'index'])->name('investments.index');
+});
 
-
-Route::get('/', [HomeController::class, 'index'])->name('home');
+// Ruta de login
 Route::get('/auth/login', function () {
     return view('auth.login');
 })->name('login');
-
-Route::get('/investments/index', [HomeController::class, 'index'])->name('investments.index');

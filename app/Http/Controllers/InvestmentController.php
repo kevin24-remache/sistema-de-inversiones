@@ -9,6 +9,13 @@ use App\Models\Investment;
 
 class InvestmentController extends Controller
 {
+    // Agregar este método
+    public function index()
+    {
+        $investments = Investment::where('user_id', Auth::id())->get();
+        return view('investments.index', compact('investments'));
+    }
+
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
