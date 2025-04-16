@@ -26,7 +26,7 @@
         </div>
 
         <div>
-            <label for="file" class="block text-sm font-semibold text-gray-700">Adjuntar Comprobante (opcional):</label>
+            <label for="file" class="block text-sm font-semibold text-gray-700">Adjuntar Comprobante:</label>
             <input type="file" name="file" id="file"
                    class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4
                           file:rounded-lg file:border-0 file:text-sm file:font-semibold

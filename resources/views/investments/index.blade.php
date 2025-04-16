@@ -11,7 +11,7 @@
     @endif
 
     <div class="flex justify-end mb-4">
-        <a href="{{ route('investments.create') }}" class="bg-blue-600 hover:bg-blue-700 text-gray-100 font-semibold py-2 px-4 rounded-lg transition">
+        <a href="{{ route('investments.create') }}" class="hover:bg-blue-700 text-gray-100 font-semibold py-2 px-4 rounded-lg transition">
             ➕ Crear Nueva Inversión
         </a>
     </div>
@@ -34,7 +34,7 @@
                         </a>
 
                         <form action="{{ route('investments.destroy', $investment->id) }}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar esta inversión?')">
-                            @CSRF
+                            @csrf
                             @method('DELETE')
                             <button type="submit" class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-lg transition">
                                 🗑️ Borrar
