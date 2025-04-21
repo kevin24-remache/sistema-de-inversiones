@@ -1,3 +1,200 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Estilos existentes */
+
+/* Estilos para el dashboard estilo Larkox */
+.dashboard-container {
+    min-height: 100vh;
+    background-color: #f8f9fa;
+}
+
+/* Sidebar styles */
+.sidebar {
+    width: 250px;
+    min-height: 100vh;
+    background-color: #1e1e2d !important;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+}
+
+.logo-container {
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.sidebar-nav {
+    padding-top: 20px;
+}
+
+.nav-category {
+    font-size: 11px;
+    color: #7b7d94;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.sidebar .nav-item .nav-link {
+    color: #a2a3b7;
+    padding: 10px 20px;
+    margin-bottom: 5px;
+    transition: all 0.3s;
+}
+
+.sidebar .nav-item .nav-link:hover,
+.sidebar .nav-item.active .nav-link {
+    color: #fff;
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+/* Main content */
+.main-content {
+    margin-left: 250px;
+    background-color: #f5f7fb;
+}
+
+/* Top navigation */
+.top-nav {
+    background-color: #fff;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+}
+
+.notification-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #f64e60;
+    color: white;
+    border-radius: 50%;
+    font-size: 10px;
+    width: 15px;
+    height: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Stats cards */
+.stats-icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg-light-pink {
+    background-color: #ffe4e6;
+}
+
+.text-pink {
+    color: #f64e60;
+}
+
+.bg-light-peach {
+    background-color: #fff4de;
+}
+
+.text-peach {
+    color: #ff9f43;
+}
+
+/* Charts placeholders */
+.chart-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, #e9ecef 0%, #f8f9fa 50%, #e9ecef 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 4px;
+}
+
+.donut-placeholder {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 20px solid #ff9f43;
+    border-top-color: #f64e60;
+    margin: 0 auto;
+}
+
+.map-placeholder {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400"><rect width="800" height="400" fill="%23f8f9fa"/><path d="M100,200 Q400,50 700,200 T100,200" stroke="%23e9ecef" fill="none" stroke-width="2"/></svg>');
+    background-size: cover;
+    height: 200px;
+    border-radius: 4px;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* Dots for chart legend */
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/* Period tabs */
+.period-tabs .btn {
+    padding: 2px 10px;
+    font-size: 12px;
+}
+
+.period-tabs .btn.active {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Table customization */
+.table th {
+    font-weight: 500;
+    color: #7E8299;
+    border-top: none;
+    font-size: 13px;
+}
+
+.table td {
+    vertical-align: middle;
+    font-size: 14px;
+}
+
+/* Alert customization */
+.alert {
+    border-radius: 8px;
+    border-left: 4px solid #ffc107;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 70px;
+    }
+
+    .sidebar .nav-link span,
+    .sidebar .nav-category {
+        display: none;
+    }
+
+    .sidebar .nav-item .nav-link {
+        text-align: center;
+        padding: 10px;
+    }
+
+    .sidebar .nav-item .nav-link i {
+        margin-right: 0;
+    }
+
+    .main-content {
+        margin-left: 70px;
+    }
+}
