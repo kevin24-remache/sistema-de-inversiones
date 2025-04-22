@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 use App\Models\Investment;
+use Illuminate\Support\Facades\Storage;
 
 class InvestmentController extends Controller
 {
@@ -15,7 +16,6 @@ class InvestmentController extends Controller
         return view('investments.index', compact('investments'));
     }
 
-    // Agregar este método
     public function create()
     {
         return view('investments.create');
@@ -46,6 +46,91 @@ class InvestmentController extends Controller
         $investment->save();
 
         // Redirigir con un mensaje de éxito
-        return redirect()->route('investments.index')->with('success', 'Investment created successfully.');
+        return redirect()->route('investments.index')->with('success', 'Inversión creada correctamente.');
+    }
+
+    /**
+     * Show the form for editing the specified investment.
+     *
+     * @param  \App\Models\Investment  $investment
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Investment $investment)
+    {
+        // Verificar que la inversión pertenece al usuario actual
+        if ($investment->user_id !== Auth::id()) {
+            return redirect()->route('investments.index')
+                ->with('error', 'No tienes permiso para editar esta inversión.');
+        }
+
+        return view('investments.edit', compact('investment'));
+    }
+
+    /**
+     * Update the specified investment in database.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Investment  $investment
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Investment $investment): RedirectResponse
+    {
+        // Verificar que la inversión pertenece al usuario actual
+        if ($investment->user_id !== Auth::id()) {
+            return redirect()->route('investments.index')
+                ->with('error', 'No tienes permiso para actualizar esta inversión.');
+        }
+
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'amount' => 'required|numeric',
+            'date' => 'required|date',
+            'file' => 'nullable|file|mimes:jpg,png,pdf|max:2048',
+        ]);
+
+        // Manejar la subida del archivo si hay uno nuevo
+        if ($request->hasFile('file')) {
+            // Eliminar el archivo anterior si existe
+            if ($investment->file_path) {
+                Storage::disk('public')->delete($investment->file_path);
+            }
+
+            $filePath = $request->file('file')->store('investments', 'public');
+            $investment->file_path = $filePath;
+        }
+
+        // Actualizar los campos
+        $investment->name = $request->name;
+        $investment->amount = $request->amount;
+        $investment->date = $request->date;
+        $investment->save();
+
+        return redirect()->route('investments.index')
+            ->with('success', 'Inversión actualizada correctamente.');
+    }
+
+    /**
+     * Remove the specified investment from storage.
+     *
+     * @param  \App\Models\Investment  $investment
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Investment $investment): RedirectResponse
+    {
+        // Verificar que la inversión pertenece al usuario actual
+        if ($investment->user_id !== Auth::id()) {
+            return redirect()->route('investments.index')
+                ->with('error', 'No tienes permiso para eliminar esta inversión.');
+        }
+
+        // Eliminar el archivo asociado si existe
+        if ($investment->file_path) {
+            Storage::disk('public')->delete($investment->file_path);
+        }
+
+        $investment->delete();
+
+        return redirect()->route('investments.index')
+            ->with('success', 'Inversión eliminada correctamente.');
     }
 }
