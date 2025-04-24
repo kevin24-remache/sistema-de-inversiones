@@ -18,23 +18,14 @@
                     <span>Inversiones</span>
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link d-flex align-items-center" href="#">
-                    <i class="fas fa-list me-2"></i>
-                    <span>Categorías</span>
-                </a>
-            </li>
+
             <li class="nav-item">
                 <a class="nav-link d-flex align-items-center" href="#">
                     <i class="fas fa-box me-2"></i>
                     <span>Inventario</span>
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link d-flex align-items-center" href="#">
-                    <i class="fas fa-shopping-cart me-2"></i>
-                    <span>Órdenes</span>
-                </a>
+
             </li>
             <li class="nav-item nav-category mt-3">
                 <span>CONFIGURACIÓN</span>
