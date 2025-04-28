@@ -103,7 +103,7 @@
                     <div class="card border-0 shadow-sm">
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-center mb-4">
-                                <h5 class="card-title mb-0">Lista de Inversiones</h5>
+                                <h5 class="card-title mb-0">Inversiones Registradas</h5>
                                 <a href="{{ route('investments.create') }}" class="btn btn-primary">
                                     <i class="fas fa-plus me-2"></i>Crear Nueva Inversión
                                 </a>
@@ -111,7 +111,7 @@
 
                             @if ($investments->isEmpty())
                                 <div class="alert alert-info text-center">
-                                    <p class="mb-0">Aún no has registrado inversiones.</p>
+                                    <p class="mb-0">Aún no tienes inversiones registradas.</p>
                                 </div>
                             @else
                                 <div class="table-responsive">

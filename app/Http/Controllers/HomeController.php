@@ -26,5 +26,16 @@ class HomeController extends Controller
         return view('index');
     }
 
+    public function adminDashboard()
+    {
+        // Verificar si el usuario es admin
+        if (!auth()->user()->is_admin) {
+            return redirect()->route('investments.index')
+                ->with('error', 'No tienes permisos para acceder al panel administrativo');
+        }
+
+        return view('admin.dashboard');
+    }
+
 
 }

@@ -115,7 +115,7 @@
                     <div class="card border-0 shadow-sm">
                         <div class="card-body p-4">
                             <div class="d-flex justify-content-between align-items-center mb-4">
-                                <h5 class="card-title mb-0">Modificar Detalles de la Inversión</h5>
+                                <h5 class="card-title mb-0">Modificar la Inversión</h5>
                                 <a href="{{ route('investments.index') }}" class="btn btn-outline-secondary btn-sm">
                                     <i class="fas fa-arrow-left me-1"></i> Volver
                                 </a>
