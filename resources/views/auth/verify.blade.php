@@ -23,7 +23,7 @@
         <div class="col-md-6">
             <div class="card shadow-lg border-0 rounded-4 overflow-hidden">
                 <div class="custom-header">
-                    <i class="bi bi-envelope-check"></i> {{ __('Verifica Tu Correo Electrónico') }}
+                    <i class="bi bi-envelope-check"></i> {{ __('Verifica en tu Correo Electrónico') }}
                 </div>
                 <div class="card-body p-5 text-center">
                     @if (session('resent'))
